@@ -1,0 +1,40 @@
+<template>
+  <style>
+    .title {
+      color: #9b9c9e;
+      padding-right: 20px;
+    }
+  </style>
+  <div with.bind="country">
+    <h4>
+      ${name}
+      <img src.bind="flag" alt="Country Flag" style="width: 30px" />
+    </h4>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <span class="title">Capital : </span>
+          <span>${capital}</span>
+        </div>
+        <div class="col-3">
+          <span class="title">Currencies : </span>
+          <span>
+            <ul>
+              <li repeat.for="currency of currencies">
+                ${currency.name} - ${currency.symbol}
+              </li>
+            </ul>
+          </span>
+        </div>
+        <div class="col-3">
+          <span class="title">Population : </span>
+          <span>${population}</span>
+        </div>
+        <div class="col-3">
+          <span class="title">Region : </span>
+          <span>${region}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

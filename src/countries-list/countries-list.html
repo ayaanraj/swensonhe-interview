@@ -1,0 +1,29 @@
+<template>
+  <require from="../country-details/country-details"></require>
+  <div class="row">
+    <div class="col-2">
+      <div
+        class="list-group"
+        style="
+          cursor: pointer;
+          position: absolute;
+          max-height: 100vh;
+          overflow-y: scroll;
+        "
+        if.bind="allCountriesList && allCountriesList.length"
+      >
+        <a
+          class="list-group-item list-group-item-action"
+          repeat.for="country of allCountriesList"
+          click.delegate="countryClicked(country, $index)"
+          id="${$index}"
+        >
+          ${country.name}
+        </a>
+      </div>
+    </div>
+    <div class="col-10" if.bind="selectedCountry">
+      <country-details country.bind="selectedCountry"></country-details>
+    </div>
+  </div>
+</template>
