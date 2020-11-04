@@ -18,6 +18,7 @@ export class CountriesList {
   getCountriesList() {
     this.httpClient.get("https://restcountries.eu/rest/v2/all").then((data) => {
       this.allCountriesList = JSON.parse(data.response);
+      // Some times list might haven't been rendered. so using set timeout
       setTimeout(() => {
         this.countryClicked(this.allCountriesList[0], 0);
       }, 100);
